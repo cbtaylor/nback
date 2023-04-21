@@ -1,7 +1,22 @@
-window.onload = function() {
-  window.setTimeout(fadeout, 3000); //3 seconds
-}
+var number = document.getElementById("number");
+    countdown();
 
-function fadeout() {
-  document.getElementById('fadeout').style.opacity = '0';
-}
+    function countdown() {
+      var count = 10;
+      var timer = setInterval(function () {
+        if (count >= 0) {
+          number.innerHTML = count;
+          number.style.opacity = 1;
+          setTimeout(fadeout, 500);
+          count--;
+        } else {
+          clearInterval(timer);
+          number.innerHTML = "Done!";
+        }
+      }, 1000);
+    }
+
+
+    function fadeout() {
+      number.style.opacity = '0';
+    }
